@@ -1,0 +1,78 @@
+{extend name="public/base" /}
+
+{block name="body"}
+<div class="main-title">
+    <h2>保修管理</h2>
+</div>
+
+<div class="cf">
+    <a class="btn" href="{:url('add','pid='.$pid)}">新 增</a>
+</div>
+
+<div class="data-table table-striped">
+    <table>
+        <thead>
+        <tr>
+            <th class="row-selected">
+                <input class="checkbox check-all" type="checkbox">
+            </th>
+            <th>ID</th>
+            <th>业主名</th>
+            <th>业主地址</th>
+            <th>电话</th>
+            <th>报修时间</th>
+            <th>留言</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {notempty name="list"}
+        {volist name="list" id="channel"}
+        <tr>
+            <td><input class="ids row-selected" type="checkbox" name="" id="" value="{$channel['id']}"> </td>
+            <td>{$channel.id}</td>
+            <td>{$channel.name}</td>
+            <td>{$channel.address}</td>
+            <td>{$channel.tel}</td>
+            <td><?=date('Y-m-d h:i:s',$channel['create_time']);?></td>
+            <td>{$channel.content}</td>
+            <td>{$channel.status==1?"已处理":"未处理"}</td>
+            <td>
+                <a title="编辑" href="{:url('edit?id='.$channel['id'].'&pid='.$pid)}">编辑</a>
+                <a title="处理" href="{:url('status?id='.$channel['id'].'&pid='.$pid)}">处理</a>
+                <a class="confirm ajax-get" title="删除" href="{:url('del?id='.$channel['id'])}">删除</a>
+            </td>
+        </tr>
+        {/volist}
+        {else/}
+        <td colspan="6" class="text-center"> aOh! 暂时还没有内容! </td>
+        {/notempty}
+        </tbody>
+    </table>
+</div>
+{/block}
+
+{block name="script"}
+<script type="text/javascript">
+    $(function() {
+        //点击排序
+        $('.list_sort').click(function(){
+            var url = $(this).attr('url');
+            var ids = $('.ids:checked');
+            var param = '';
+            if(ids.length > 0){
+                var str = new Array();
+                ids.each(function(){
+                    str.push($(this).val());
+                });
+                param = str.join(',');
+            }
+
+            if(url != undefined && url != ''){
+                window.location.href = url + '/ids/' + param;
+            }
+        });
+    });
+</script>
+{/block}
