@@ -11,7 +11,7 @@ class Repairs extends Admin
         $pid = input('get.pid', 0);
         /* 获取频道列表 */;
         $map  = array('status' => array('gt', -1));
-        $list = \think\Db::name('Repairs')->where($map)->order('sort asc,id asc')->select();
+        $list = \think\Db::name('Repairs')->where($map)->order('sort asc,id asc')->paginate();
         $this->assign('list', $list);
         $this->assign('pid', $pid);
         $this->assign('meta_title' , '保修管理');

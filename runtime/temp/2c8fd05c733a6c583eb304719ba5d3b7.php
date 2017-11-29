@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"D:\www\twothink\public/../application/user/view/default/login\index.html";i:1511745476;s:72:"D:\www\twothink\public/../application/user/view/default/base\common.html";i:1511745238;s:69:"D:\www\twothink\public/../application/user/view/default/base\var.html";i:1496373782;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"D:\www\twothink\public/../application/user/view/default/login\index.html";i:1511752274;s:72:"D:\www\twothink\public/../application/user/view/default/base\common.html";i:1511745238;s:69:"D:\www\twothink\public/../application/user/view/default/base\var.html";i:1496373782;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -80,23 +80,24 @@
 	    <div class="row">
 	         
 	        
+
 <section>
   <div class="span12">
     <form class="login-form" action="" method="post">
       <div class="control-group">
-        <label class="control-label" for="inputEmail">用户名</label>
+        <label class="control-label" for="inputEmail"><h4>用户名</h4></label>
         <div class="controls">
           <input type="text" id="inputEmail" class="span12" placeholder="请输入用户名"  ajaxurl="/member/checkUserNameUnique.html" errormsg="请填写1-16位用户名" nullmsg="请填写用户名" datatype="*1-16" value="" name="username">
         </div>
       </div>
       <div class="control-group">
-        <label class="control-label" for="inputPassword">密码</label>
+        <label class="control-label" for="inputPassword"><h4>密码</h4></label>
         <div class="controls">
           <input type="password" id="inputPassword"  class="span12" placeholder="请输入密码"  errormsg="密码为6-20位" nullmsg="请填写密码" datatype="*6-20" name="password">
         </div>
       </div>
       <div class="control-group">
-        <label class="control-label" for="inputPassword">验证码</label>
+        <label class="control-label" for="inputPassword"><h4>验证码</h4></label>
         <div class="controls">
           <input type="text" id="inputPassword" class="span12" placeholder="请输入验证码"  errormsg="请填写5位验证码" nullmsg="请填写验证码" datatype="*5-5" name="verify">
         </div>
@@ -113,7 +114,7 @@
           <label class="checkbox">
             <input type="checkbox"> 自动登陆
           </label>
-          <button type="submit" style="background: blue;color: white" class="span12" class="btn">登 陆</button>
+          <button type="submit" class="btn span12 btn-primary">登 陆</button>
         </div>
       </div>
       <p><span><span class="pull-left"><span>还没有账号? <a href="<?php echo url('login/register'); ?>">立即注册</a></span> </span></p>
@@ -156,6 +157,10 @@
 })();
 </script>
 	
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="__PUBLIC__/home/js/jquery-1.11.2.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="__PUBLIC__/home/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 
     $(document)

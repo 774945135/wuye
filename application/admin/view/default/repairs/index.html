@@ -28,20 +28,20 @@
         </thead>
         <tbody>
         {notempty name="list"}
-        {volist name="list" id="channel"}
+        {volist name="list" id="repairs"}
         <tr>
-            <td><input class="ids row-selected" type="checkbox" name="" id="" value="{$channel['id']}"> </td>
-            <td>{$channel.id}</td>
-            <td>{$channel.name}</td>
-            <td>{$channel.address}</td>
-            <td>{$channel.tel}</td>
-            <td><?=date('Y-m-d h:i:s',$channel['create_time']);?></td>
-            <td>{$channel.content}</td>
-            <td>{$channel.status==1?"已处理":"未处理"}</td>
+            <td><input class="ids row-selected" type="checkbox" name="" id="" value="{$repairs['id']}"> </td>
+            <td>{$repairs.id}</td>
+            <td>{$repairs.name}</td>
+            <td>{$repairs.address}</td>
+            <td>{$repairs.tel}</td>
+            <td><?=date('Y-m-d h:i:s',$repairs['create_time']);?></td>
+            <td>{$repairs.content}</td>
+            <td>{$repairs.status==1?"已处理":"未处理"}</td>
             <td>
-                <a title="编辑" href="{:url('edit?id='.$channel['id'].'&pid='.$pid)}">编辑</a>
-                <a title="处理" href="{:url('status?id='.$channel['id'].'&pid='.$pid)}">处理</a>
-                <a class="confirm ajax-get" title="删除" href="{:url('del?id='.$channel['id'])}">删除</a>
+                <a title="编辑" href="{:url('edit?id='.$repairs['id'].'&pid='.$pid)}">编辑</a>
+                <a title="处理" href="{:url('status?id='.$repairs['id'].'&pid='.$pid)}">处理</a>
+                <a class="confirm ajax-get" title="删除" href="{:url('del?id='.$repairs['id'])}">删除</a>
             </td>
         </tr>
         {/volist}
@@ -50,8 +50,10 @@
         {/notempty}
         </tbody>
     </table>
+    {$list->render()}
 </div>
 {/block}
+
 
 {block name="script"}
 <script type="text/javascript">

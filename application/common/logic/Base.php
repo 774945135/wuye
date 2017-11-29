@@ -35,7 +35,9 @@ class Base extends Model {
      */
     public function detail($id) {
     	//查询表字段
-    	$fields = $this->getTableFields(array('name'=>$this->name));
+    	//$fields = $this->getTableFields(array('name'=>$this->name));
+        //修复高版本tp获取表名错误的bug
+    	$fields = $this->getTableFields(null);
         if ($fields == false) {
             $data = array();
         } else {

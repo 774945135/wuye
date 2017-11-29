@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:75:"D:\www\twothink\public/../application/user/view/default/login\register.html";i:1496373782;s:72:"D:\www\twothink\public/../application/user/view/default/base\common.html";i:1496373782;s:69:"D:\www\twothink\public/../application/user/view/default/base\var.html";i:1496373782;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:75:"D:\www\twothink\public/../application/user/view/default/login\register.html";i:1496373782;s:72:"D:\www\twothink\public/../application/user/view/default/base\common.html";i:1511745238;s:69:"D:\www\twothink\public/../application/user/view/default/base\var.html";i:1496373782;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -28,7 +28,7 @@
 	<!-- 头部 -->
 	<!-- 导航条
 	================================================== -->
-	<div class="navbar navbar-inverse navbar-fixed-top">
+	<!--<div class="navbar navbar-inverse navbar-fixed-top">
 	    <div class="navbar-inner">
 	        <div class="container">
 	            <a class="brand" href="<?php echo url('index/index'); ?>">TwoThink</a>
@@ -72,7 +72,7 @@
 	    </div>
 	</div>
 
-	<!-- /头部 -->
+	&lt;!&ndash; /头部 &ndash;&gt;-->
 	
 	<!-- 主体 -->
 	
@@ -154,11 +154,11 @@
 	
     <!-- 底部
     ================================================== -->
-    <footer class="footer">
+    <!--<footer class="footer">
       <div class="container">
           <p> 本站由 <strong><a href="http://www.twothink.cn" target="_blank">TwoThink</a></strong> 强力驱动</p>
       </div>
-    </footer>
+    </footer>-->
 
 	<script type="text/javascript">
 (function(){
