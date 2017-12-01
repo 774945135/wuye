@@ -36,7 +36,9 @@ class Publics extends Controller {
      * 后台用户登录 
      */
     public function login($username = null, $password = null, $verify = null){
+
         if(request()->isPost()){
+
             /* 检测验证码 TODO: */
            if(!captcha_check($verify)){
                 $this->error('验证码输入错误！');
@@ -44,10 +46,13 @@ class Publics extends Controller {
 
             /* 调用UC登录接口登录 */
             $User = new UcApi;
+
             $uid = $User->login($username, $password);
+
             if(0 < $uid){ //UC登录成功
                 /* 登录用户 */
                 $Member = model('Member');
+
                 if($Member->login($uid)){ //登录用户
                     //TODO:跳转到登录前页面
                     $this->success('登录成功！', url('Index/index'));

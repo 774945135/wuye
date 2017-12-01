@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:74:"D:\www\twothink\public/../application/admin/view/default/service\edit.html";i:1511855148;s:73:"D:\www\twothink\public/../application/admin/view/default/public\base.html";i:1496373782;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:74:"D:\www\twothink\public/../application/admin/view/default/service\edit.html";i:1512038835;s:73:"D:\www\twothink\public/../application/admin/view/default/public\base.html";i:1496373782;}*/ ?>
 <!doctype html>
 <html>
 <head>
@@ -102,7 +102,7 @@
             
 <div class="main-title">
     <h2>
-        <?php echo !empty($info['id'])?'编辑':'新增'; ?>报修
+        <?php echo !empty($info['id'])?'编辑':'新增'; ?>便民服务
         <?php if(!(empty($pid) || (($pid instanceof \think\Collection || $pid instanceof \think\Paginator ) && $pid->isEmpty()))): ?>"><?php echo $parent['title']; ?></a>&nbsp;]
         <?php endif; ?>
     </h2>
@@ -129,8 +129,8 @@
             <label class="item-label">便民服务有效期</label>
             <div class="controls">
 
-                <input id="d4311" name="start_time" class="Wdate" type="text" onclick="WdatePicker({maxDate:'#F{\$dp.\$D(\'d4312\')}'})"/>
-                <input id="d4312" name="end_time" class="Wdate" type="text" onclick="WdatePicker({minDate:'#F{\$dp.\$D(\'d4311\')}'})"/>
+                <input id="d4311" name="start_time" class="Wdate" type="text" onclick="WdatePicker({maxDate:'#F{\$dp.\$D(\'d4312\')}'})" value="<?php echo (isset($info['start_time']) && ($info['start_time'] !== '')?$info['start_time']:''); ?>"/>
+                <input id="d4312" name="end_time" class="Wdate" type="text" onclick="WdatePicker({minDate:'#F{\$dp.\$D(\'d4311\')}'})" value="<?php echo (isset($info['end_time']) && ($info['end_time'] !== '')?$info['end_time']:''); ?>"/>
                 <div class="form-item">
 
                     <label class="item-label">便民服务内容</label>

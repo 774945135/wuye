@@ -29,7 +29,7 @@ class Inform extends Admin
             $models = model('inform');
             //接收表单数据
             $result = Request::instance()->post();
-            var_dump($result);die;
+var_dump($result);die;
             // 获取表单上传文件
             $file = request()->file('path');
             // 移动到框架应用根目录/public/uploads/ 目录下
@@ -50,6 +50,7 @@ class Inform extends Admin
                 return $this->error($validate->getError());
             }
             //保存
+            $result['admin'] = session('user_auth.username');
             $data = $models->create($result);
             //展示表单
             if($data){
@@ -60,6 +61,8 @@ class Inform extends Admin
                 $this->error('添加失败','index');
             }
         }
+        $field['name'] = 'content';
+        $this->assign('field',$field);
         return $this->fetch('edit');
     }
 

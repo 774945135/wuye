@@ -43,7 +43,7 @@
     </nav>
     <!--导航结束-->
 
-    <div class="container-fluid">
+    <!--<div class="container-fluid">
         {volist name="result" id="service"}
         <div class="row noticeList">
             <a href="{:url('service/detail?id='.$service['id'])}">
@@ -58,10 +58,25 @@
             </a>
         </div>
         {/volist}
+    </div>-->
+    <div id="article_list">
+
     </div>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="__PUBLIC__/home/js/jquery-1.11.2.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="__PUBLIC__/home/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="__PUBLIC__/home/js/jquery-1.11.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="__PUBLIC__/home/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            getLists(1);
+        })
+        var getLists = function (page) {
+            $(".get_more").remove();
+            $.get("{:url('service/ajaxlists')}?page="+page,function (data) {
+                $("#article_list").append(data);
+            })
+        }
+    </script>
 </body>
 </html>

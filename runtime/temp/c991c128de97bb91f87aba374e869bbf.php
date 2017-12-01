@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:75:"D:\www\twothink\public/../application/user/view/default/login\register.html";i:1496373782;s:72:"D:\www\twothink\public/../application/user/view/default/base\common.html";i:1511745238;s:69:"D:\www\twothink\public/../application/user/view/default/base\var.html";i:1496373782;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:75:"D:\www\twothink\public/../application/user/view/default/login\register.html";i:1511919157;s:72:"D:\www\twothink\public/../application/user/view/default/base\common.html";i:1511745238;s:69:"D:\www\twothink\public/../application/user/view/default/base\var.html";i:1496373782;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -76,13 +76,6 @@
 	
 	<!-- 主体 -->
 	
-<header class="jumbotron subhead" id="overview">
-  <div class="container">
-    <h2>用户注册</h2>
-    <p><span><span class="pull-left"><span>已经有账号? <a href="<?php echo url('User/login'); ?>">点此登录</a> </span> </span></p>
-  </div>
-</header>
-
 	<div id="main-container" class="container">
 	    <div class="row">
 	         
@@ -92,33 +85,33 @@
 	<div class="span12">
         <form class="login-form" action="" method="post">
           <div class="control-group">
-            <label class="control-label" for="inputEmail">用户名</label>
+            <label class="control-label" for="inputEmail"><h4>用户名</h4></label>
             <div class="controls">
-              <input type="text" id="inputEmail" class="span3" placeholder="请输入用户名"  ajaxurl="/member/checkUserNameUnique.html" errormsg="请填写1-16位用户名" nullmsg="请填写用户名" datatype="*1-16" value="" name="username">
+              <input type="text" id="inputEmail" class="span12" placeholder="请输入用户名"  ajaxurl="/member/checkUserNameUnique.html" errormsg="请填写1-16位用户名" nullmsg="请填写用户名" datatype="*1-16" value="" name="username">
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label" for="inputPassword">密码</label>
+            <label class="control-label" for="inputPassword"><h4>密码</h4></label>
             <div class="controls">
-              <input type="password" id="inputPassword"  class="span3" placeholder="请输入密码"  errormsg="密码为6-20位" nullmsg="请填写密码" datatype="*6-20" name="password">
+              <input type="password" id="inputPassword"  class="span12" placeholder="请输入密码"  errormsg="密码为6-20位" nullmsg="请填写密码" datatype="*6-20" name="password">
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label" for="inputPassword">确认密码</label>
+            <label class="control-label" for="inputPassword"><h4>确认密码</h4></label>
             <div class="controls">
-              <input type="password" id="inputPassword" class="span3" placeholder="请再次输入密码" recheck="password" errormsg="您两次输入的密码不一致" nullmsg="请填确认密码" datatype="*" name="repassword">
+              <input type="password" id="inputPassword" class="span12" placeholder="请再次输入密码" recheck="password" errormsg="您两次输入的密码不一致" nullmsg="请填确认密码" datatype="*" name="repassword">
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label" for="inputEmail">邮箱</label>
+            <label class="control-label" for="inputEmail"><h4>邮箱</h4></label>
             <div class="controls">
-              <input type="text" id="inputEmail" class="span3" placeholder="请输入电子邮件"  ajaxurl="/member/checkUserEmailUnique.html" errormsg="请填写正确格式的邮箱" nullmsg="请填写邮箱" datatype="e" value="" name="email">
+              <input type="text" id="inputEmail" class="span12" placeholder="请输入电子邮件"  ajaxurl="/member/checkUserEmailUnique.html" errormsg="请填写正确格式的邮箱" nullmsg="请填写邮箱" datatype="e" value="" name="email">
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label" for="inputPassword">验证码</label>
+            <label class="control-label" for="inputPassword"><h4>验证码</h4></label>
             <div class="controls">
-              <input type="text" id="inputPassword" class="span3" placeholder="请输入验证码"  errormsg="请填写5位验证码" nullmsg="请填写验证码" datatype="*5-5" name="verify">
+              <input type="text" id="inputPassword" class="span12" placeholder="请输入验证码"  errormsg="请填写5位验证码" nullmsg="请填写验证码" datatype="*5-5" name="verify">
             </div>
           </div>
           <div class="control-group">
@@ -130,7 +123,10 @@
           </div>
           <div class="control-group">
             <div class="controls">
-              <button type="submit" class="btn">注 册</button>
+              <button type="submit" class="btn span12 btn-primary">注 册</button>
+            </div>
+            <div class="container">
+              <p><span><span class="pull-left"><span>已经有账号? <a href="<?php echo url('User/login'); ?>">点此登录</a> </span> </span></p>
             </div>
           </div>
         </form>

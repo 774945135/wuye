@@ -1,0 +1,17 @@
+
+    {volist name="list" id="inform"}
+    <div class="row noticeList">
+        <a href="{:url('inform/detail?id='.$inform['id'])}">
+            <div class="col-xs-2">
+                <img style="width: 100px;height: 100px;" class="noticeImg" src="__ROOT__/uploads/{$inform['path']}" />
+            </div>
+            <div class="col-xs-10">
+                <p class="title">{$inform.title}</p>
+                <p class="intro">{$inform.content}</p>
+                <p class="info">浏览: {$inform.click} <span class="pull-right"><?=date('Y-m-d',$inform['create_time'])?></span> </p>
+            </div>
+        </a>
+    </div>
+    {/volist}
+    <button class="btn btn-default btn-block get_more" onclick="getLists({$Think.get.page+1})">获取更多....</button>
+

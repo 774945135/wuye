@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:73:"D:\www\twothink\public/../application/admin/view/default/inform\edit.html";i:1511854260;s:73:"D:\www\twothink\public/../application/admin/view/default/public\base.html";i:1496373782;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:73:"D:\www\twothink\public/../application/admin/view/default/inform\edit.html";i:1512042947;s:73:"D:\www\twothink\public/../application/admin/view/default/public\base.html";i:1496373782;}*/ ?>
 <!doctype html>
 <html>
 <head>
@@ -130,15 +130,27 @@
                     <label class="item-label">小区通知有效期</label>
                     <div class="controls">
 
-                        <input id="d4311" class="Wdate" type="text" onclick="WdatePicker({maxDate:'#F<?php echo $dp.$D,'d4312'; ?>'})"/>
-                        <input id="d4312" class="Wdate" type="text" onclick="WdatePicker({minDate:'#F<?php echo $dp.$D,'d4311'; ?>'})"/>
+                        <input id="d4311" name="start_time" class="Wdate" type="text" onclick="WdatePicker({maxDate:'#F{\$dp.\$D(\'d4312\')}'})" value="<?php echo (isset($info['start_time']) && ($info['start_time'] !== '')?$info['start_time']:''); ?>"/>
+                        <input id="d4312" name="end_time" class="Wdate" type="text" onclick="WdatePicker({minDate:'#F{\$dp.\$D(\'d4311\')}'})" value="<?php echo (isset($info['end_time']) && ($info['end_time'] !== '')?$info['end_time']:''); ?>"/>
                         <div class="form-item">
 
                         </div>
                     <label class="item-label">小区通知内容</label>
                     <div class="controls">
-                        <textarea name="content" class="textarea input-large"  cols="30" rows="10"><?php echo (isset($info['content']) && ($info['content'] !== '')?$info['content']:''); ?></textarea>
+                        <label class="textarea">
+                            <textarea name="<?php echo $field['name']; ?>"><?php echo $info['content']; ?></textarea>
+
+                        </label>
                         <div class="form-item">
+
+
+
+                            <label class="textarea">
+                                <textarea name="<?php echo $field['name']; ?>"><?php echo $field['value']; ?></textarea>
+                                <?php echo hook('adminArticleEdit', array('name'=>$field['name'],'value'=>$field['value'])); ?>
+                            </label>
+
+
 
                             <br>
                             <button class="btn submit-btn ajax-posts" id="submit" type="submit" target-form="form-horizontal">确 定</button>
@@ -243,10 +255,7 @@
     </script>
     
 <script type="text/javascript" src="__PUBLIC__/admin/js/WdatePicker.js"></script>
-<script type="text/javascript" charset="utf-8">
-    //导航高亮
-    highlight_subnav('<?php echo url('index'); ?>');
-</script>
+
 
 </body>
 </html>

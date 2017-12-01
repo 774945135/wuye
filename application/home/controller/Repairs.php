@@ -8,13 +8,20 @@
 
 namespace app\home\controller;
 
-
+use think\Db;
 use think\Request;
 use think\Validate;
 
 class Repairs extends Home
 {
     public function index(){
+        if(empty(get_username())){
+            $this->success('请登陆',  url('User/Login/index'));
+        }
+        $on = Db::name('member')->where(array('nickname'=>get_username(),'owner'=>1))->find();
+        if(empty($on)){
+            $this->error('您还没有认证,请先认证!','{:url(authentication/index)}');
+        }
         if(request()->isPost()){
             $model = model('repairs');
             //接收表单数据
@@ -25,6 +32,7 @@ class Repairs extends Home
                 return $this->error($validate->getError());
             }
             //保存
+            $result['member'] = get_username();
             $data = $model->create($result);
             if($data){
                 $this->success('提交成功','index/index');
@@ -36,6 +44,15 @@ class Repairs extends Home
         }
 
         //展示页面
+        return $this->fetch();
+    }
+
+    public function detail($name){
+        //根据用户名查询报修记录
+        $result = Db::name('repairs')->where(array('member'=>$name))->select();
+
+        //展示页面
+        $this->assign('result',$result);
         return $this->fetch();
     }
 }

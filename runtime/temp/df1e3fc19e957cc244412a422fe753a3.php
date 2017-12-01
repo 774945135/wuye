@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\www\twothink\public/../application/home/view/default/service\index.html";i:1511781105;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\www\twothink\public/../application/home/view/default/service\index.html";i:1512061103;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -44,7 +44,7 @@
     </nav>
     <!--导航结束-->
 
-    <div class="container-fluid">
+    <!--<div class="container-fluid">
         <?php if(is_array($result) || $result instanceof \think\Collection || $result instanceof \think\Paginator): $i = 0; $__LIST__ = $result;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$service): $mod = ($i % 2 );++$i;?>
         <div class="row noticeList">
             <a href="<?php echo url('service/detail?id='.$service['id']); ?>">
@@ -59,10 +59,25 @@
             </a>
         </div>
         <?php endforeach; endif; else: echo "" ;endif; ?>
+    </div>-->
+    <div id="article_list">
+
     </div>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="__PUBLIC__/home/js/jquery-1.11.2.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="__PUBLIC__/home/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="__PUBLIC__/home/js/jquery-1.11.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="__PUBLIC__/home/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            getLists(1);
+        })
+        var getLists = function (page) {
+            $(".get_more").remove();
+            $.get("<?php echo url('service/ajaxlists'); ?>?page="+page,function (data) {
+                $("#article_list").append(data);
+            })
+        }
+    </script>
 </body>
 </html>

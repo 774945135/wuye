@@ -3,7 +3,7 @@
 {block name="body"}
 <div class="main-title">
     <h2>
-        {$info['id']?'编辑':'新增'}报修
+        {$info['id']?'编辑':'新增'}便民服务
         {notempty name="pid">
         [&nbsp;父导航：<a href="{:url('index','id='.$id)}">{$parent.title}</a>&nbsp;]
         {/notempty}
@@ -31,8 +31,8 @@
             <label class="item-label">便民服务有效期</label>
             <div class="controls">
 
-                <input id="d4311" name="start_time" class="Wdate" type="text" onclick="WdatePicker({maxDate:'#F{\$dp.\$D(\'d4312\')}'})"/>
-                <input id="d4312" name="end_time" class="Wdate" type="text" onclick="WdatePicker({minDate:'#F{\$dp.\$D(\'d4311\')}'})"/>
+                <input id="d4311" name="start_time" class="Wdate" type="text" onclick="WdatePicker({maxDate:'#F{\$dp.\$D(\'d4312\')}'})" value="{$info.start_time|default=''}"/>
+                <input id="d4312" name="end_time" class="Wdate" type="text" onclick="WdatePicker({minDate:'#F{\$dp.\$D(\'d4311\')}'})" value="{$info.end_time|default=''}"/>
                 <div class="form-item">
 
                     <label class="item-label">便民服务内容</label>

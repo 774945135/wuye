@@ -1,5 +1,6 @@
 <?php
 namespace app\home\controller;
+use think\Db;
 use think\Request;
 use app\home\model\Document;
 /**
@@ -38,6 +39,17 @@ class Article extends Home {
 		$this->assign('list', $list);
 		// echo $category['template_lists'];
 		return $this->fetch($category['template_lists']);
+	}
+	/* Ajax翻页 */
+	public function ajaxlists($p = 1){
+
+		$list = Db::name('inform')->where(array('status'=>1))->paginate();
+
+
+		/* 模板赋值并渲染模板 */
+		$this->assign('list', $list);
+		// echo $category['template_lists'];
+		return $this->fetch();
 	}
 
 	/* 文档模型详情页 */

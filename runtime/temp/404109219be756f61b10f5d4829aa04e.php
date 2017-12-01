@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:74:"D:\www\twothink\public/../application/admin/view/default/inform\index.html";i:1511857972;s:73:"D:\www\twothink\public/../application/admin/view/default/public\base.html";i:1496373782;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:74:"D:\www\twothink\public/../application/admin/view/default/inform\index.html";i:1511925820;s:73:"D:\www\twothink\public/../application/admin/view/default/public\base.html";i:1496373782;}*/ ?>
 <!doctype html>
 <html>
 <head>
@@ -120,7 +120,7 @@
             <th>发布人</th>
             <th>发布时间</th>
             <th>点击量</th>
-            <th>状态</th>
+            <th>发布状态</th>
             <th>操作</th>
         </tr>
         </thead>
@@ -133,10 +133,10 @@
             <td><?php echo $inform['admin']; ?></td>
             <td><?=date('Y-m-d h:i:s',$inform['create_time']);?></td>
             <td><?php echo $inform['click']; ?></td>
-            <td><?=$inform['status']==1?'禁用':'发布'?></td>
+            <td><?=$inform['status']==1?'发布':'未发布'?></td>
             <td>
                 <a title="编辑" href="<?php echo url('edit?id='.$inform['id'].'&pid='.$pid); ?>">编辑</a>
-                <a title="状态" href="<?php echo url('status?id='.$inform['id'].'&pid='.$pid); ?>"><?=$inform['status']==1?'发布':'禁用'?></a>
+                <a title="状态" href="<?php echo url('status?id='.$inform['id'].'&pid='.$pid); ?>"><?=$inform['status']==1?'未发布':'发布'?></a>
                 <a class="confirm ajax-get" title="删除" href="<?php echo url('del?id='.$inform['id']); ?>">删除</a>
             </td>
         </tr>

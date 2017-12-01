@@ -35,10 +35,10 @@
             <td>{$service.admin}</td>
             <td><?=date('Y-m-d h:i:s',$service['create_time']);?></td>
             <td>{$service.click}</td>
-            <td><?=$service['status']==1?'禁用':'发布'?></td>
+            <td><?=$service['status']==1?'发布':'未发布'?></td>
             <td>
                 <a title="编辑" href="{:url('edit?id='.$service['id'].'&pid='.$pid)}">编辑</a>
-                <a title="状态" href="{:url('status?id='.$service['id'].'&pid='.$pid)}"><?=$service['status']==1?'发布':'禁用'?></a>
+                <a title="状态" href="{:url('status?id='.$service['id'].'&pid='.$pid)}"><?=$service['status']==1?'未发布':'发布'?></a>
                 <a class="confirm ajax-get" title="删除" href="{:url('del?id='.$service['id'])}">删除</a>
             </td>
         </tr>

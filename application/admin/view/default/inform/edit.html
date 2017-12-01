@@ -32,15 +32,27 @@
                     <label class="item-label">小区通知有效期</label>
                     <div class="controls">
 
-                        <input id="d4311" name="start_time" class="Wdate" type="text" onclick="WdatePicker({maxDate:'#F{\$dp.\$D(\'d4312\')}'})"/>
-                        <input id="d4312" name="end_time" class="Wdate" type="text" onclick="WdatePicker({minDate:'#F{\$dp.\$D(\'d4311\')}'})"/>
+                        <input id="d4311" name="start_time" class="Wdate" type="text" onclick="WdatePicker({maxDate:'#F{\$dp.\$D(\'d4312\')}'})" value="{$info.start_time|default=''}"/>
+                        <input id="d4312" name="end_time" class="Wdate" type="text" onclick="WdatePicker({minDate:'#F{\$dp.\$D(\'d4311\')}'})" value="{$info.end_time|default=''}"/>
                         <div class="form-item">
 
                         </div>
                     <label class="item-label">小区通知内容</label>
                     <div class="controls">
-                        <textarea name="content" class="textarea input-large"  cols="30" rows="10">{$info.content|default=''}</textarea>
+                        <label class="textarea">
+                            <textarea name="{$field.name}">{$info.content}</textarea>
+                            {:hook('adminArticleEdit', array('name'=>$field['name'],'value'=>$field['value']))}
+                        </label>
                         <div class="form-item">
+
+
+
+                            <label class="textarea">
+                                <textarea name="{$field.name}">{$field.value}</textarea>
+                                {:hook('adminArticleEdit', array('name'=>$field['name'],'value'=>$field['value']))}
+                            </label>
+
+
 
                             <br>
                             <button class="btn submit-btn ajax-posts" id="submit" type="submit" target-form="form-horizontal">确 定</button>
@@ -50,8 +62,5 @@
 {/block}
 {block name="script"}
 <script type="text/javascript" src="__PUBLIC__/admin/js/WdatePicker.js"></script>
-<script type="text/javascript" charset="utf-8">
-    //导航高亮
-    highlight_subnav('{:url('index')}');
-</script>
+
 {/block}

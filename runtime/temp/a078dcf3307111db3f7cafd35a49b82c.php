@@ -1,34 +1,30 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:74:"D:\www\twothink\public/../application/home/view/default/article\lists.html";i:1496373782;s:72:"D:\www\twothink\public/../application/home/view/default/base\common.html";i:1496373782;s:69:"D:\www\twothink\public/../application/home/view/default/base\var.html";i:1496373782;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:74:"D:\www\twothink\public/../application/home/view/default/article\lists.html";i:1511923775;s:72:"D:\www\twothink\public/../application/home/view/default/base\common.html";i:1511923587;s:69:"D:\www\twothink\public/../application/home/view/default/base\var.html";i:1496373782;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="UTF-8">
 <title><?php echo config('WEB_SITE_TITLE'); ?></title>
-<link href="__STATIC__/bootstrap/css/bootstrap.css" rel="stylesheet">
-<link href="__STATIC__/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-<link href="__STATIC__/bootstrap/css/docs.css" rel="stylesheet">
-<link href="__STATIC__/bootstrap/css/twothink.css" rel="stylesheet">
+	<link href="__PUBLIC__/home/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="__PUBLIC__/home/css/style.css" rel="stylesheet">
 
-<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
-<script src="__STATIC__/bootstrap/js/html5shiv.js"></script>
-<![endif]-->
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<style>
+		.main{margin-bottom: 60px;}
+		.indexLabel{padding: 10px 0; margin: 10px 0 0; color: #fff;}
+	</style>
 
-<!--[if lt IE 9]>
-<script type="text/javascript" src="__STATIC__/jquery-1.10.2.min.js"></script>
-<![endif]-->
-<!--[if gte IE 9]><!-->
-<script type="text/javascript" src="__STATIC__/jquery-2.0.3.min.js"></script>
-<script type="text/javascript" src="__STATIC__/bootstrap/js/bootstrap.min.js"></script>
-<!--<![endif]-->
-<!-- 页面header钩子，一般用于加载插件CSS文件和代码 -->
-<?php echo hook('pageHeader'); ?>
+
 </head>
 <body>
 	<!-- 头部 -->
 	<!-- 导航条
 	================================================== -->
-	<div class="navbar navbar-inverse navbar-fixed-top">
+<!--	<div class="navbar navbar-inverse navbar-fixed-top">
 	    <div class="navbar-inner">
 	        <div class="container">
 	            <a class="brand" href="<?php echo url('index/index'); ?>">TwoThink</a>
@@ -72,10 +68,10 @@
 	    </div>
 	</div>
 
-	<!-- /头部 -->
+	&lt;!&ndash; /头部 &ndash;&gt;-->
 	
 	<!-- 主体 -->
-	
+	<!--
 	<header class="jumbotron subhead" id="overview">
 		<div class="container">
 			<h2>源自相同起点，演绎不同精彩！</h2>
@@ -86,8 +82,8 @@
 	<div id="main-container" class="container">
 	    <div class="row">
 	        
-	        <!-- 左侧 nav
-	        ================================================== -->
+	        &lt;!&ndash; 左侧 nav
+	        ================================================== &ndash;&gt;
 	            <div class="span3 bs-docs-sidebar">
 	                
 	                <ul class="nav nav-list bs-docs-sidenav">
@@ -96,37 +92,49 @@
 	            </div>
 	        
 	        
-      <div class="span9">
-        <!-- Contents
-        ================================================== -->
-        <section id="contents">
-					<?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?>
-						<div class="row">
-									<div class="span2">
-											<a href="<?php echo url('Article/detail?id='.$data['id']); ?>"><img class="img-thumbnail" src="__ROOT__<?php echo get_cover_path($data['cover_id']); ?>" /></a>
-									</div>
-									<div class="span7">
-										<h3 class="ellipsis"><a href="<?php echo url('Article/detail?id='.$data['id']); ?>"><?php echo $data['title']; ?></a></h3>
-										<p class="lead"><?php echo $data['description']; ?></p>
-										<span><a href="<?php echo url('Article/detail?id='.$data['id']); ?>">查看全文</a></span>
-										<span class="pull-right">
-											<span class="author"><?php echo get_username($data['uid']); ?></span>&nbsp;&nbsp;
-											<span>发表于 <?php echo $data['create_time']; ?></span>
-											<span>阅读(<?php echo $data['view']; ?>)</span>&nbsp;&nbsp;
-										</span>
-									</div>
-									<hr/>
-						</div>
-	        <?php endforeach; endif; else: echo "" ;endif; ?>
-            <div class="twothink pagination pagination-right pagination-large">
-	            <?php $__PAGE__ = \think\Db::name('Document')->paginate($category['list_row'],get_list_count($category['id']));echo $__PAGE__->render(); ?>
-            </div>
-        </section>
-      </div>
+<div class="main">
+	<!--导航部分-->
+	<nav class="navbar navbar-default navbar-fixed-bottom">
+		<div class="container-fluid text-center">
+			<div class="col-xs-3">
+				<p class="navbar-text"><a href="<?php echo url('index/index'); ?>" class="navbar-link">首页</a></p>
+			</div>
+			<div class="col-xs-3">
+				<p class="navbar-text"><a href="#" class="navbar-link">服务</a></p>
+			</div>
+			<div class="col-xs-3">
+				<p class="navbar-text"><a href="#" class="navbar-link">发现</a></p>
+			</div>
+			<div class="col-xs-3">
+				<p class="navbar-text"><a href="#" class="navbar-link">我的</a></p>
+			</div>
+		</div>
+	</nav>
+	<!--导航结束-->
 
-	    </div>
+	<div class="container-fluid">
+		<?php if(is_array($result) || $result instanceof \think\Collection || $result instanceof \think\Paginator): $i = 0; $__LIST__ = $result;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$inform): $mod = ($i % 2 );++$i;?>
+		<div class="row noticeList">
+			<a href="<?php echo url('service/detail?id='.$inform['id']); ?>">
+				<div class="col-xs-2">
+					<img style="width: 100px;height: 100px;" class="noticeImg" src="__ROOT__\uploads\<?php echo $inform['path']; ?>" />
+				</div>
+				<div class="col-xs-10">
+					<p class="title"><?php echo $inform['title']; ?></p>
+					<p class="intro"><?php echo $inform['content']; ?></p>
+					<p class="info">浏览: <?php echo $inform['click']; ?> <span class="pull-right"><?=date('Y-m-d',$inform['create_time'])?></span> </p>
+				</div>
+			</a>
+		</div>
+		<?php endforeach; endif; else: echo "" ;endif; ?>
 	</div>
 
+	    </div>
+	</div>-->
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="__PUBLIC__/home/js/jquery-1.11.2.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="__PUBLIC__/home/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 	    $(function(){
 	        $(window).resize(function(){
@@ -140,7 +148,7 @@
 	
     <!-- 底部
     ================================================== -->
-    <footer class="footer">
+ <!--   <footer class="footer">
       <div class="container">
           <p> 本站由 <strong><a href="http://www.twothink.cn" target="_blank">TwoThink</a></strong> 强力驱动</p>
       </div>
@@ -158,13 +166,13 @@
 	}
 })();
 </script>
-	 <!-- 用于加载js代码 -->
-	<!-- 页面footer钩子，一般用于加载插件JS文件和JS代码 -->
+	 &lt;!&ndash; 用于加载js代码 &ndash;&gt;
+	&lt;!&ndash; 页面footer钩子，一般用于加载插件JS文件和JS代码 &ndash;&gt;
 	<?php echo hook('pageFooter', 'widget'); ?>
-	<div class="hidden"><!-- 用于加载统计代码等隐藏元素 -->
+	<div class="hidden">&lt;!&ndash; 用于加载统计代码等隐藏元素 &ndash;&gt;
 		
 	</div>
 
-	<!-- /底部 -->
+	&lt;!&ndash; /底部 &ndash;&gt;-->
 </body>
 </html>

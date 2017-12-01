@@ -49,6 +49,7 @@ class Service extends Admin
                 return $this->error($validate->getError());
             }
             //保存
+            $result['admin'] = session('user_auth.username');
             $data = $models->create($result);
             //展示表单
             if($data){
